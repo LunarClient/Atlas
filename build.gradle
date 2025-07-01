@@ -1,5 +1,6 @@
 apply plugin: 'java'
 apply plugin: 'maven'
+apply plugin: 'com.google.cloud.artifactregistry.gradle-plugin' version '2.2.0'
 
 sourceCompatibility = javaVersion
 targetCompatibility = javaVersion
@@ -61,11 +62,11 @@ uploadArchives {
             if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
                 beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                repository(url: 'https://oss.sonatype.org/service/local/staging/deploy/maven2/') {
+                repository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
                     authentication(userName: ossrhUsername, password: ossrhPassword)
                 }
 
-                snapshotRepository(url: 'https://oss.sonatype.org/content/repositories/snapshots/') {
+                snapshotRepository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
                     authentication(userName: ossrhUsername, password: ossrhPassword)
                 }
             }
