@@ -1,8 +1,7 @@
-apply plugin: 'java'
-apply plugin: 'maven'
-
 plugins {
   id("com.google.cloud.artifactregistry.gradle-plugin") version "2.2.5"
+  id("java")
+  id("maven")
 }
 
 sourceCompatibility = javaVersion
