@@ -58,15 +58,12 @@ if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')
 uploadArchives {
     repositories {
         mavenDeployer {
-            // Maven Central
-            if (project.hasProperty('ossrhUsername') && project.hasProperty('ossrhPassword')) {
-                beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
 
-                repository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
-                }
+            repository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
+            }
 
-                snapshotRepository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
-                }
+            snapshotRepository(url: "artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public") {
             }
 
             pom {
