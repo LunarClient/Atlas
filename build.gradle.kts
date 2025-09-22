@@ -15,7 +15,7 @@ java {
 
 group = "org.cadixdev"
 project.setProperty("archivesBaseName", project.name.toLowerCase())
-version = "0.3.0-SNAPSHOT"
+version = "0.3.0"
 
 repositories {
     mavenCentral()
