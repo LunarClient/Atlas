@@ -108,7 +108,7 @@ publishing {
     repositories {
         maven {
             name = "artifactRegistry"
-            url = uri("artifactregistry://us-maven.pkg.dev/mw-lunarclient-maven-repo/public")
+            url = uri("artifactregistry://us-central1-maven.pkg.dev/mw-lunarclient-maven-repo/public")
         }
     }
 }
